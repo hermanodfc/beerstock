@@ -1,6 +1,9 @@
 package one.digitalinnovation.beerstock.controller;
 
 import lombok.AllArgsConstructor;
+import one.digitalinnovation.beerstock.dto.BeerDTO;
+import one.digitalinnovation.beerstock.exception.BeerAlreadyRegisteredException;
+import one.digitalinnovation.beerstock.exception.BeerNotFoundException;
 import one.digitalinnovation.beerstock.service.BeerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +26,7 @@ public class BeerController implements BeerControllerDocs {
     }
 
     @GetMapping("/{name}")
-    public BeerDTO findByName(@PathVariable String name) throws BeerNotFoundExceptions {
+    public BeerDTO findByName(@PathVariable String name) throws BeerNotFoundException {
         return beerService.findByName(name);
     }
 
