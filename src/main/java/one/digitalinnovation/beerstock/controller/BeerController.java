@@ -35,7 +35,7 @@ public class BeerController implements BeerControllerDocs {
         return beerService.listAll();
     }
 
-    @DeleteMapping("/{ id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws BeerNotFoundException {
         beerService.deleteById(id);
